@@ -1,0 +1,11 @@
+.switchWrapper {
+  position: relative;
+
+  > :first-child {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    transition: transform 0.5s linear;
+  }
+}
