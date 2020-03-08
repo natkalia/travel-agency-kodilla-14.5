@@ -24,7 +24,13 @@ export const getFilteredTrips = ({trips, filters}) => {
     );
   }
 
-  // TODO: sort by cost descending (most expensive goes first)
+  // sort by cost descending (most expensive goes first)
+  const compareCosts = (a, b) => {
+    a = a.cost.substr(1).replace(',', '');
+    b = b.cost.substr(1).replace(',', '');
+    return b - a;
+  };
+  output.sort(compareCosts);
 
   return output;
 };
