@@ -5,16 +5,13 @@ import PropTypes from 'prop-types';
 import PricingOptions from '../../../data/pricing';
 import OrderOption from '../OrderOption/OrderOption';
 
-console.log(PricingOptions);
-
-const OrderForm = props => (  
+const OrderForm = ({tripCost, options}) => (  
   <Row>
-
+    {/* maps through pricing from data to get options for options components */}
     {PricingOptions.map(option => 
       (<Col md={4} key={option.id}><OrderOption {...option}/></Col> ))}
-   
     <Col xs={12}>
-      <OrderSummary tripCost={props.tripCost} tripOptions={props.options}/>
+      <OrderSummary tripCost={tripCost} tripOptions={options}/>
     </Col>
   </Row>
 );
