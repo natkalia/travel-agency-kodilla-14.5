@@ -6,6 +6,9 @@ import OrderOptionIcons from './OrderOptionIcons';
 import OrderOptionCheckboxes from './OrderOptionCheckboxes';
 import OrderOptionNumber from './OrderOptionNumber';
 
+/* used to toggle between subcomponents 
+when rendering them in OrderForm
+depending on input type */
 const optionTypes = {
   dropdown: OrderOptionDropdown,
   icons: OrderOptionIcons, 
@@ -13,17 +16,19 @@ const optionTypes = {
   number: OrderOptionNumber,
 };
 
-const OrderOption = ({name, type, ...otherProps}) => {
+const OrderOption = ({name, type, setOrderOption, id, ...otherProps}) => {
   const OptionComponent = optionTypes[type];
-  // OptionComponent changes value depending on map iteration in OrderForm, 
-  // e.g. OrderOptionIcons, OrderOptionNumber - components depending on input type
+  /* OptionComponent changes value depending on map iteration in OrderForm, 
+  e.g. OrderOptionIcons, OrderOptionNumber - components depending on input type */
   if(!OptionComponent){
     return null;
   } else {
     return (
       <div className={styles.component}>
         <h3 className={styles.title}>{name}</h3>
+        {/* send only other props related to order options (without option name, type) */}
         <OptionComponent
+          setOptionValue={value => setOrderOption({[id]: value})}
           {...otherProps}
         />
       </div>
