@@ -16,11 +16,11 @@ const optionTypes = {
   number: OrderOptionNumber,
 };
 
-const OrderOption = ({name, type, setOrderOption, id, ...otherProps}) => {
+const OrderOption = ({ name, type, setOrderOption, id, ...otherProps }) => {
   const OptionComponent = optionTypes[type];
   /* OptionComponent changes value depending on map iteration in OrderForm, 
   e.g. OrderOptionIcons, OrderOptionNumber - components depending on input type */
-  if(!OptionComponent){
+  if (!OptionComponent) {
     return null;
   } else {
     return (
