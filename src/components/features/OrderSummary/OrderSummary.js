@@ -4,11 +4,17 @@ import {calculateTotal} from '../../../utils/calculateTotal';
 import {formatPrice} from '../../../utils/formatPrice';
 import PropTypes from 'prop-types';
 
-const OrderSummary = ({tripCost, tripOptions}) => (
-  <h2 className={styles.component}>
-    Total: <strong>{calculateTotal(formatPrice(tripCost), tripOptions)}</strong>
-  </h2>
-);
+const OrderSummary = ({tripCost, tripOptions}) => {
+  const finalTripCost = calculateTotal(formatPrice(tripCost), tripOptions);
+  return (
+    <h2 className={styles.component}>
+    Total: 
+      <strong>
+        $ {finalTripCost}
+      </strong>
+    </h2>
+  );
+};
 
 OrderSummary.propTypes = {
   tripCost: PropTypes.string,
