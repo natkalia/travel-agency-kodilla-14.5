@@ -4,12 +4,17 @@ import {Row, Col} from 'react-flexbox-grid';
 import PropTypes from 'prop-types';
 import PricingOptions from '../../../data/pricing';
 import OrderOption from '../OrderOption/OrderOption';
+import styles from './OrderForm.scss';
 
 const OrderForm = ({tripCost, options, setOrderOption}) => (  
   <Row>
     {/* maps through pricing from data to get options for options components */}
     {PricingOptions.map(option => 
-      (<Col md={4} key={option.id}>
+      (<Col
+        md={3} 
+        key={option.id}
+        className={styles.box}
+      >
         <OrderOption
           {...option}
           setOrderOption={setOrderOption} 
