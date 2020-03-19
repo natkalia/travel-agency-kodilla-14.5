@@ -2,6 +2,7 @@
 
 .component {
   position: relative;
+  text-align: left;
   margin: ($base-size * 2) 0;
   @include p-el('before') {
     content: '';

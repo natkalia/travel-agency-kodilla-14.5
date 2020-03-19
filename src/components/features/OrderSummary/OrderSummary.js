@@ -8,9 +8,9 @@ const OrderSummary = ({tripCost, tripOptions}) => {
   const finalTripCost = calculateTotal(formatPrice(tripCost), tripOptions);
   return (
     <h2 className={styles.component}>
-    Total: 
+      {`Total: `}
       <strong>
-        $ {finalTripCost}
+        {formatPrice(finalTripCost)}
       </strong>
     </h2>
   );
