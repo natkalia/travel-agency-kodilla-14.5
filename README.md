@@ -6,6 +6,10 @@ Project created as exercise for Web Developer Bootcamp in Kodilla (Module 14.5).
 
 Coming soon.
 
+* npm run start - for launching locally
+* npm run lint - for linter
+* npm run test - for tests
+
 ## Technologies/tools
 
 Project is created with:
