@@ -14,23 +14,26 @@ const TripSummary = ({id, image, name, cost, days, tags}) => (
           <span>{days} days</span>
           <span>from {cost}</span>
         </div>
-        <div className={styles.tags}>
-          {tags.map(tag => (
-            <span className={styles.tag} key={tag.toString()}>{tag}</span>
-          ))}
-        </div>
+        {/* TODO: not working as expected */}
+        {tags !== [] &&
+          <div className={styles.tags}>
+            {tags.map(tag => (
+              <span className={styles.tag} key={tag.toString()}>{tag}</span>
+            ))}
+          </div>}
+        {/* end of problem to be solved */}
       </article>
     </Link>
   </Col>
 );
 
 TripSummary.propTypes = {
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  image: PropTypes.string,
-  name: PropTypes.string,
-  intro: PropTypes.string,
-  cost: PropTypes.string,
-  days: PropTypes.number,
+  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  // intro: PropTypes.string,
+  cost: PropTypes.string.isRequired,
+  days: PropTypes.number.isRequired,
   tags: PropTypes.array,
 };
 
