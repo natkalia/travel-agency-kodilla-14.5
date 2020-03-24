@@ -14,14 +14,22 @@ const TripSummary = ({id, image, name, cost, days, tags}) => (
           <span>{days} days</span>
           <span>from {cost}</span>
         </div>
-        {/* TODO: not working as expected */}
-        {tags !== [] &&
+
+        {/* {tags !== [] &&
           <div className={styles.tags}>
             {tags.map(tag => (
               <span className={styles.tag} key={tag.toString()}>{tag}</span>
             ))}
-          </div>}
-        {/* end of problem to be solved */}
+          </div>} */}
+
+        {tags && tags.length > 0 &&
+          <div className={styles.tags}>
+            {tags.map(tag => (
+              <span className={styles.tag} key={tag.toString()}>{tag}</span>
+            ))}
+          </div>
+        }
+
       </article>
     </Link>
   </Col>

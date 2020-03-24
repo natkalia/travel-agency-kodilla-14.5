@@ -82,23 +82,21 @@ describe('Component TripSummary', () => {
     const componentWithTagsEmpty = shallow(
       <TripSummary 
         {...props} tags={expectedTagsEmpty}/>); 
-    // console.log(componentWithTagsEmpty.debug())
-    const renderedBoolWithTagsEmpty = componentWithTagsEmpty
+    const renderedWithTagsEmpty = componentWithTagsEmpty
       .find('.tags')
       .exists();
-    expect(renderedBoolWithTagsEmpty)
-      .toBeTruthy(); //TODO: not working as expected
+    expect(renderedWithTagsEmpty)
+      .toBeFalsy();
 
-    // TODO: finish after refactoring previous test with empty array
-    // let expectedTagsUndefined = undefined;
-    // const componentWithTagsUndefined = shallow
-    //   (<TripSummary 
-    //     {...props} 
-    //     tags={expectedTagsUndefined}/>); 
-    // const renderedBoolWithTagsUndefined = componentWithTagsUndefined
-    //   .find('.tags')
-    //   .exists();
-    // expect(renderedBoolWithTagsUndefined)
-    //   .toEqual(false);
+    let expectedTagsUndefined = undefined;
+    const componentWithTagsUndefined = shallow(
+      <TripSummary 
+        {...props} 
+        tags={expectedTagsUndefined}/>); 
+    const renderedWithTagsUndefined = componentWithTagsUndefined
+      .find('.tags')
+      .exists();
+    expect(renderedWithTagsUndefined)
+      .toBeFalsy();
   });
 });
