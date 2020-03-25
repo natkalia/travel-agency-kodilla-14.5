@@ -1,4 +1,4 @@
-# Travel Agency :clipboard:
+# Travel Agency :airplane:
 
 Project created as exercise for Web Developer Bootcamp in Kodilla (Module 14.5).
 
@@ -6,20 +6,27 @@ Project created as exercise for Web Developer Bootcamp in Kodilla (Module 14.5).
 
 Coming soon.
 
-* npm run start - for launching locally
-* npm run lint - for linter
-* npm run test - for tests
+* ```npm run start``` - for launching locally
+* ```npm run lint``` - for linter
+* ```npm run test``` - for tests
 
 ## Technologies/tools
 
 Project is created with:
+
 * HTML
 * Sass for CSS
 * CSS modules
-* Javascript (ES6)
+* Javascript (ES6+)
 * React
 * Redux
-* react-datepicker
+* (react-flexbox-grid)[https://www.npmjs.com/package/react-flexbox-grid]
+* (react-datepicker)[https://www.npmjs.com/package/react-datepicker]
+* (json-server for fake API)[https://www.npmjs.com/package/json-server]
+* (jest gor testing)[https://www.npmjs.com/package/jest]
+* (enzyme for testing)[https://www.npmjs.com/package/enzyme]
+* (eslint linter)[https://www.npmjs.com/package/eslint]
+* (husky for linting before commits)[https://www.npmjs.com/package/husky]
 
 ## Todo / known bugs
 
