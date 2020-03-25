@@ -160,11 +160,11 @@ for(let type in optionTypes){
         /* tests for icons */
         it('contains divs with class icon', () => {
           const div = renderedSubcomponent.find('div.icon');
-          expect(div.length).toBe(4); 
+          expect(div.length).toBe((mockProps.values.length+2)); 
         });
         it('should run setOrderOption function on click', () => {
           const div = renderedSubcomponent.find('div.icon');
-          div.at(3).simulate('click');
+          div.at(2).simulate('click');
           expect(mockSetOrderOption).toBeCalledTimes(1);
         });
         break;
@@ -199,4 +199,5 @@ for(let type in optionTypes){
         break;
       }   
     }
-  });}
+  });
+}
