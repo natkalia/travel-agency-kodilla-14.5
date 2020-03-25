@@ -20,12 +20,17 @@ class OrderOptionDate extends React.Component {
     setOptionValue(date);
   };
 
+  componentDidMount() {
+    const {setOptionValue} = this.props;
+    setOptionValue(this.state.startDate);
+  }
+
   render() {
     return (
       <DatePicker
         dateFormat='dd/MM/yyyy'
         selected={this.state.startDate}
-        onChange={this.handleChange}/>
+        onChange={date => this.handleChange(date)}/>
     );
   }
 }
