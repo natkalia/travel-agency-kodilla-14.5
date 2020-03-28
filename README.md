@@ -28,6 +28,10 @@ Project is created with:
 * [eslint linter](https://www.npmjs.com/package/eslint)
 * [husky for linting before commits](https://www.npmjs.com/package/husky)
 
+## Features
+
+* timer for Happy Hour in Hero component from 12:00 to 13:00 (assumed UTC, not user local time)
+
 ## Todo / known bugs
 
 - [ ] On the Trips page, add filtering by region to which the trip is being planned
