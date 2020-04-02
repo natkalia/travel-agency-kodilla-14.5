@@ -4,15 +4,19 @@ import {calculateTotal} from '../../../utils/calculateTotal';
 import {formatPrice} from '../../../utils/formatPrice';
 import PropTypes from 'prop-types';
 
+import {promoPrice} from '../../../utils/promoPrice';
+import settings from '../../../data/settings';
+
 const OrderSummary = ({tripCost, tripOptions}) => {
-  const finalTripCost = calculateTotal(formatPrice(tripCost), tripOptions);
+
+  const standardTripCost = calculateTotal(formatPrice(tripCost), tripOptions);
+  const promoTripCost = promoPrice(standardTripCost, settings.discount);
+  
   return (
-    <h2 className={styles.component}>
-      {`Total: `}
-      <strong>
-        {formatPrice(finalTripCost)}
-      </strong>
-    </h2>
+    <div className={styles.component}>
+      <h2>Total happy hour price from: {formatPrice(promoTripCost)}</h2>
+      <p>Total standard price: {formatPrice(standardTripCost)}</p>
+    </div>
   );
 };
 

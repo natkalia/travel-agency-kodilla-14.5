@@ -4,19 +4,19 @@ import TripSummary from './TripSummary';
 
 describe('Component TripSummary', () => {
 
-  const props = {
+  const mockProps = {
     id: 'abc',
     name: 'name',
     image: 'image',
-    cost: '$100',
+    cost: '$139,398.25',
     days: 7,
     tags: ['tag1', 'tag2', 'tag3'],
   };
 
-  const component = shallow(<TripSummary {...props}/>);   
+  const component = shallow(<TripSummary {...mockProps}/>);   
 
   it('should generate link to proper path based on id from props', () => {
-    const expectedLink = `/trip/${props.id}`;
+    const expectedLink = `/trip/${mockProps.id}`;
     const renderedLink = component
       .find('Link')
       .prop('to');
@@ -25,8 +25,8 @@ describe('Component TripSummary', () => {
   });
 
   it('should generate img with proper src and alt', () => {
-    const expectedAlt = props.name;
-    const expectedSrc = props.image;  
+    const expectedAlt = mockProps.name;
+    const expectedSrc = mockProps.image;  
     const renderedAlt = component
       .find('img')
       .prop('alt');
@@ -39,10 +39,9 @@ describe('Component TripSummary', () => {
       .toEqual(expectedSrc);
   });
 
-  it('should render correct name, days, cost', () => {
-    const expectedName = props.name;
-    const expectedDays = props.days;
-    const expectedCost = props.cost;
+  it('should render correct name, days', () => {
+    const expectedName = mockProps.name;
+    const expectedDays = mockProps.days;
     const renderedName = component
       .find('.title')
       .text();
@@ -50,16 +49,17 @@ describe('Component TripSummary', () => {
       .find('.details span')
       .at(0)
       .text(); 
-    const renderedCost = component
-      .find('.details span')
-      .at(1)
-      .text(); 
     expect(renderedName)
       .toEqual(expectedName);
     expect(renderedDays)
       .toContain(expectedDays);
-    expect(renderedCost)
-      .toContain(expectedCost);
+  });
+
+  it('should render correct cost', () => {    
+    const renderedPromoCost = component.find('.details span').at(1).text(); 
+    const renderedStandardCost = component.find('.details span').at(2).text(); 
+    expect(renderedPromoCost).toContain('$111,519');  
+    expect(renderedStandardCost).toContain('$139,398');  
   });
 
   it('should throw error without required props', () => {
@@ -67,7 +67,7 @@ describe('Component TripSummary', () => {
   });
   
   it('should render tags in spans in proper order', () => {
-    const expectedTags = props.tags;
+    const expectedTags = mockProps.tags;
     const renderedTags = [];
     renderedTags.push(
       component.find('.tag').at(0).text(),
@@ -81,7 +81,7 @@ describe('Component TripSummary', () => {
     const expectedTagsEmpty = []; 
     const componentWithTagsEmpty = shallow(
       <TripSummary 
-        {...props} tags={expectedTagsEmpty}/>); 
+        {...mockProps} tags={expectedTagsEmpty}/>); 
     const renderedWithTagsEmpty = componentWithTagsEmpty
       .find('.tags')
       .exists();
@@ -91,7 +91,7 @@ describe('Component TripSummary', () => {
     let expectedTagsUndefined = undefined;
     const componentWithTagsUndefined = shallow(
       <TripSummary 
-        {...props} 
+        {...mockProps} 
         tags={expectedTagsUndefined}/>); 
     const renderedWithTagsUndefined = componentWithTagsUndefined
       .find('.tags')
