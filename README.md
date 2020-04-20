@@ -2,6 +2,10 @@
 
 Project created as exercise for Web Developer Bootcamp in Kodilla (Module 14.5).
 
+## Screenshots
+
+Coming soon.
+
 ## Setup
 
 Coming soon.
@@ -21,9 +25,9 @@ Project is created with:
 * React
 * Redux
 * [react-flexbox-grid](https://www.npmjs.com/package/react-flexbox-grid)
-* [react-datepicker][https://www.npmjs.com/package/react-datepicker)
+* [react-datepicker](https://www.npmjs.com/package/react-datepicker)
 * [json-server for fake API](https://www.npmjs.com/package/json-server)
-* [jest gor testing](https://www.npmjs.com/package/jest)
+* [jest for testing](https://www.npmjs.com/package/jest)
 * [enzyme for testing](https://www.npmjs.com/package/enzyme)
 * [eslint linter](https://www.npmjs.com/package/eslint)
 * [husky for linting before commits](https://www.npmjs.com/package/husky)
